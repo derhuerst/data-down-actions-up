@@ -1,0 +1,24 @@
+{
+	"name":         "data-down-actions-up",
+	"description":  "Enforce the Data Down, Actions Up™ paradigm.",
+	"version":      "0.1.0",
+	"main":         "index.js",
+	"files":        ["index.js"],
+	"keywords":     ["architecture", "components", "control flow", "frontend"],
+	"author":       "Jannis R <mail@jannisr.de>",
+	"homepage":     "https://github.com/derhuerst/data-down-actions-up",
+	"repository":   "derhuerst/data-down-actions-up",
+	"bugs":         "https://github.com/derhuerst/data-down-actions-up/issues",
+	"license":      "ISC",
+	"engines":      {"node": ">=6"},
+	"dependencies": {
+	},
+	"devDependencies": {
+		"tape": "^4.6.3",
+		"tap-min": "derhuerst/tap-min"
+	},
+	"scripts": {
+		"test": "node test.js | tap-min",
+		"prepublish": "npm test"
+	}
+}
