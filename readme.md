@@ -9,13 +9,13 @@
 ![ISC-licensed](https://img.shields.io/github/license/derhuerst/data-down-actions-up.svg)
 [![chat on gitter](https://badges.gitter.im/derhuerst.svg)](https://gitter.im/derhuerst)
 
-@maxogden, @yoshuawuyts and other great people have shaped this notion of **[*Data Down, Actions Up™*](https://github.com/maxogden/yo-yo#yo-yojs), a paradigm to organize your frontend components**. In order to keep code maintainable, it encourages you to follow the following principles:
+@maxogden, @yoshuawuyts and other people have shaped the notion of **[*Data Down, Actions Up™*](https://github.com/maxogden/yo-yo#yo-yojs), a paradigm to organize your frontend components**. In order to keep code maintainable, it encourages you to follow the following principles:
 
-- Make your components pure. They receive arguments and return a tree of DOM or [`virtual-dom`](https://github.com/Matt-Esch/virtual-dom#virtual-dom) nodes.
+- Make your components pure. They receive arguments and compute a tree of DOM or [`virtual-dom`](https://github.com/Matt-Esch/virtual-dom#virtual-dom) nodes.
 - Pass all data (often called "state") necessary to render the component as the first argument.
 - Pass all functions that mutate this data (often called "actions"), as the second argument, grouped in an object.
 
-This module enforces this pattern. **During development, it makes `data` immutable and asserts that every item in `actions` is a function.** In the production build, it will simply return the component, leading to no runtime overhead.
+This module enforces the pattern. **During development, it makes `data` immutable and asserts that every item in `actions` is a function.** In the production build, it will simply return the component, leading to almost no runtime overhead.
 
 
 ## Installing
@@ -27,7 +27,7 @@ npm install data-down-actions-up
 
 ## Usage
 
-Consider this simplify user account component:
+Consider this simplified user account component:
 
 ```js
 const yo = require('yo-yo')
@@ -54,6 +54,26 @@ module.exports = dataDownActionsUp(account)
 ```
 
 **If you bundle this, use [envify](https://github.com/hughsk/envify#readme) to get the production version of `dataDownActionsUp`**, which simply returns your `account` component directly.
+
+### Bonus: memoization
+
+A [memoized](https://en.wikipedia.org/wiki/Memoization#Overview) component will only rerender if you call it with different `data`. This tool helps you with that, but what *different* means is up to your component's logic.
+
+Let's assume our `account` component from above is expensive to render, e.g. because it has to run a complex algorithm. We want to wrap it using `memoize`, so it only has to do expensive rerendering if `data` changed.
+
+```js
+const memoize = require('data-down-actions-up/memoize')
+
+const compare = (dataFromLastCall, data) => {
+	return dataFromLastCall.name === data.name
+	&& dataFromLastCall.img === data.img
+}
+const memoizedAccount = memoize(account, compare)
+```
+
+`memoize` has the signature `memoize(component, [compare])`. If you don't pass a `compare` function, `data` and `dataFromLastCall` will be compared using `===`.
+
+**Note that the extremely efficient `===` memoization only works if you have immutable `data`. If something changed, `data` will be a different object than `dataFromLastCall`.**
 
 
 ## Contributing

@@ -15,11 +15,13 @@
 		"seamless-immutable": "^7.0.1"
 	},
 	"devDependencies": {
+		"benchmark": "^2.1.4",
 		"tape": "^4.6.3",
 		"tap-min": "^1.2.1"
 	},
 	"scripts": {
 		"test": "env NODE_ENV=dev node test.js | tap-min",
-		"prepublish": "npm test"
+		"prepublish": "npm test",
+		"benchmark": "node benchmark.js"
 	}
 }
