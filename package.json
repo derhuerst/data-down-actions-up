@@ -1,7 +1,7 @@
 {
 	"name":         "data-down-actions-up",
 	"description":  "Enforce the Data Down, Actions Up™ paradigm.",
-	"version":      "0.1.0",
+	"version":      "0.2.0",
 	"main":         "index.js",
 	"files":        ["index.js", "memoize.js"],
 	"keywords":     ["architecture", "components", "control flow", "frontend"],
