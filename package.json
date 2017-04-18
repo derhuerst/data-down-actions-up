@@ -3,7 +3,7 @@
 	"description":  "Enforce the Data Down, Actions Up™ paradigm.",
 	"version":      "0.1.0",
 	"main":         "index.js",
-	"files":        ["index.js"],
+	"files":        ["index.js", "memoize.js"],
 	"keywords":     ["architecture", "components", "control flow", "frontend"],
 	"author":       "Jannis R <mail@jannisr.de>",
 	"homepage":     "https://github.com/derhuerst/data-down-actions-up",
@@ -16,7 +16,7 @@
 	},
 	"devDependencies": {
 		"tape": "^4.6.3",
-		"tap-min": "derhuerst/tap-min"
+		"tap-min": "^1.2.1"
 	},
 	"scripts": {
 		"test": "env NODE_ENV=dev node test.js | tap-min",
