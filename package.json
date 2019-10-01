@@ -17,7 +17,7 @@
 	"devDependencies": {
 		"benchmark": "^2.1.4",
 		"tape": "^4.6.3",
-		"tap-min": "^1.2.1"
+		"tap-min": "^2.0.0"
 	},
 	"scripts": {
 		"test": "env NODE_ENV=dev node test.js | tap-min",
