@@ -7,7 +7,7 @@
 [![dependency status](https://img.shields.io/david/derhuerst/data-down-actions-up.svg)](https://david-dm.org/derhuerst/data-down-actions-up)
 [![dev dependency status](https://img.shields.io/david/dev/derhuerst/data-down-actions-up.svg)](https://david-dm.org/derhuerst/data-down-actions-up#info=devDependencies)
 ![ISC-licensed](https://img.shields.io/github/license/derhuerst/data-down-actions-up.svg)
-[![chat on gitter](https://badges.gitter.im/derhuerst.svg)](https://gitter.im/derhuerst)
+[![chat on gitter](https://badges.gitter.im/derhuerst.svg)](https://gitter.im/derhuerst) [![Greenkeeper badge](https://badges.greenkeeper.io/derhuerst/data-down-actions-up.svg)](https://greenkeeper.io/)
 
 @maxogden, @yoshuawuyts and other people have shaped the notion of **[*Data Down, Actions Up™*](https://github.com/maxogden/yo-yo#yo-yojs), a paradigm to organize your frontend components**. In order to keep code maintainable, it encourages you to follow the following principles:
 
