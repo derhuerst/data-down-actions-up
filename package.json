@@ -1,27 +1,40 @@
 {
-	"name":         "data-down-actions-up",
-	"description":  "Enforce the Data Down, Actions Up™ paradigm.",
-	"version":      "0.2.0",
-	"main":         "index.js",
-	"files":        ["index.js", "memoize.js"],
-	"keywords":     ["architecture", "components", "control flow", "frontend"],
-	"author":       "Jannis R <mail@jannisr.de>",
-	"homepage":     "https://github.com/derhuerst/data-down-actions-up",
-	"repository":   "derhuerst/data-down-actions-up",
-	"bugs":         "https://github.com/derhuerst/data-down-actions-up/issues",
-	"license":      "ISC",
-	"engines":      {"node": ">=6"},
-	"dependencies": {
-		"seamless-immutable": "^7.0.1"
-	},
-	"devDependencies": {
-		"benchmark": "^2.1.4",
-		"tape": "^4.6.3",
-		"tap-min": "^1.2.1"
-	},
-	"scripts": {
-		"test": "env NODE_ENV=dev node test.js | tap-min",
-		"prepublish": "npm test",
-		"benchmark": "node benchmark.js"
-	}
+  "name": "data-down-actions-up",
+  "description": "Enforce the Data Down, Actions Up™ paradigm.",
+  "version": "0.2.0",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "memoize.js"
+  ],
+  "keywords": [
+    "architecture",
+    "components",
+    "control flow",
+    "frontend"
+  ],
+  "author": "Jannis R <mail@jannisr.de>",
+  "homepage": "https://github.com/derhuerst/data-down-actions-up",
+  "repository": "derhuerst/data-down-actions-up",
+  "bugs": "https://github.com/derhuerst/data-down-actions-up/issues",
+  "license": "ISC",
+  "engines": {
+    "node": ">=6"
+  },
+  "dependencies": {
+    "seamless-immutable": "^7.0.1",
+    "snyk": "^1.320.2"
+  },
+  "devDependencies": {
+    "benchmark": "^2.1.4",
+    "tape": "^4.6.3",
+    "tap-min": "^1.2.1"
+  },
+  "scripts": {
+    "test": "env NODE_ENV=dev node test.js | tap-min",
+    "prepublish": "npm run snyk-protect && npm test",
+    "benchmark": "node benchmark.js",
+    "snyk-protect": "snyk protect"
+  },
+  "snyk": true
 }
